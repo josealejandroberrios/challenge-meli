@@ -1,12 +1,10 @@
 import { Router } from "express";
 
-export default () => {
-  const router = Router();
+import { NAME_SPACE } from "../constants";
+import apiRoutes from "./api";
 
-  /* GET home page. */
-  router.get("/", function (req, res, next) {
-    res.render("index", { title: "Express" });
-  });
+const router = Router();
 
-  return router;
-};
+router.use(NAME_SPACE, apiRoutes);
+
+export default router;
