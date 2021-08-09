@@ -1,7 +1,11 @@
 import { Router } from "express";
 
 import ItemsController from "../../controllers/items";
-import { httpBadRequest, httpOK } from "../../utils/httpResponse";
+import {
+  httpBadRequest,
+  httpInternalServerError,
+  httpOK,
+} from "../../utils/httpResponse";
 
 const router = Router();
 
@@ -16,13 +20,33 @@ router.get("/", async (req, res) => {
   } else {
     const data = await ItemsController.searchItems({ search: q });
 
-    httpOK(res, data);
+    if (data.error) {
+      httpInternalServerError(res);
+    } else {
+      httpOK(res, data);
+    }
   }
 });
 
 /* GET item by id. */
-router.get("/:id", function (req, res, next) {
-  res.send(`item ${req.params.id}`);
+router.get("/:id", async (req, res) => {
+  const { id } = req.params;
+
+  if (!id) {
+    httpBadRequest(res, "the params id is no present");
+  } else {
+    const data = await ItemsController.itemDetails({ id });
+    
+    if (data.error) {
+      if (data.error === "not_found") {
+        httpBadRequest(res, data.message);
+      } else {
+        httpInternalServerError(res);
+      }
+    } else {
+      httpOK(res, data);
+    }
+  }
 });
 
 export default router;
