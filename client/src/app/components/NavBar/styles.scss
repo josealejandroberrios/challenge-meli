@@ -1,0 +1,90 @@
+@import '../../../scss/variables/colors';
+@import '../../../scss/variables/layout';
+@import '../../../scss/variables/sizes';
+@import '../../../scss/variables/font';
+
+.navbar {
+  background-color: $yellow;
+  width: 100%;
+  height: 60px;
+  display: flex;
+
+  .navbar__wrapped {
+    max-width: $max-width-app;
+    width: 100%;
+    padding: 0 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (min-width: $break-point-lg) {
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    .navbar__link {
+      display: none;
+    
+      @media (min-width: $break-point-sm) {
+        display: initial;
+      }
+    }
+  }
+}
+
+.navbar__logo {
+  height: 35px;
+  object-fit: contain;
+}
+
+.navbar__form {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  background-color: white;
+  border-radius: $border-radius;
+
+  @media (min-width: $break-point-sm) {
+    margin-left: 32px;
+  }
+
+  .navbar__form__input {
+    box-sizing: border-box;
+    height: 100%;
+    flex: 1;
+    border: none;
+    padding: 8px 16px;
+    border-radius: inherit;
+    @include base-text($dark-gray, 16px, 18px);
+
+    &:focus {
+      color: $dark-gray;
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: $gray;
+    }
+  }
+
+  .navbar__form__button {
+    width: 48px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    border-bottom-right-radius: inherit;
+    border-top-right-radius: inherit;
+
+    .navbar__form__button__icon {
+      width: 16px;
+    }
+  }
+}
