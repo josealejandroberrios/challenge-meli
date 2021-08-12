@@ -1,0 +1,7 @@
+@import './colors';
+
+@mixin base-text($color, $font-size, $line-height) {
+  color: $color;
+  font-size: $font-size;
+  line-height: $line-height;
+}
