@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 import BreadCrumbs from "../../components/Breadcrumbs";
 import ItemDetails from "../../components/ItemDetails";
@@ -25,10 +26,23 @@ const Item = () => {
 
   if (loading) return <Loader />;
 
-  if (error) return <ErrorMessage message={`Artículo con id ${id} no encontrado`} />
+  if (error)
+    return (
+      <>
+        <Helmet>
+          <title>{`Artículo con id ${id} no encontrado`}</title>
+        </Helmet>
+        <ErrorMessage message={`Artículo con id ${id} no encontrado`} />;
+      </>
+    );
 
   return (
     <>
+      <Helmet>
+        <title>{item.title}</title>
+        <meta name="description" content={item.description} />
+      </Helmet>
+
       <BreadCrumbs categories={categories} />
       <ItemDetails {...item} />
     </>
