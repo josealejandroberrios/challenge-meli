@@ -9,7 +9,7 @@ const Layout = ({ children }) => (
     <NavBar />
 
     <section className="section">
-      {children} 
+      <div className="section__wrapped">{children}</div>
     </section>
   </div>
 );

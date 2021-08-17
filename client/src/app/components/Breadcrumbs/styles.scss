@@ -1,0 +1,48 @@
+@import "../../../scss/variables/colors";
+@import "../../../scss/variables/layout";
+@import "../../../scss/variables/sizes";
+@import "../../../scss/variables/font";
+
+.bread-crumbs {
+  display: none;
+  padding: 16px 0px;
+  width: 100%;
+
+  @media (min-width: $break-point-sm) {
+    display: block;
+  }
+
+  .bread-crumbs__list {
+    list-style: none;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    @include base-text($gray, 14px, 16px);
+  }
+
+  .bread-crumbs__item {
+    display: inline;
+    font-weight: 400;
+    margin: 0 0 2px;
+
+    &:not(:first-child) {
+      &::before {
+        content: "\003E";
+        display: inline-block;
+        width: 10px;
+        margin: 0px 3px 0px 8px;
+        font-size: 10px;
+        font-weight: 400;
+      }
+    }
+
+    &:last-child { 
+      font-weight: 600;
+    }
+
+    .bread-crumbs__item__link {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+}

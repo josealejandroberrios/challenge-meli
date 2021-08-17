@@ -1,24 +1,16 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import React, { useCallback, useEffect, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 
 import PATHS from "../../../constants/paths";
 import { toAbsoluteUrl } from "../../../utils/assetsHelpers";
-import {
-  parseQueryString,
-  encodeQueryString,
-} from "../../../utils/formatterQueryString";
+import { encodeQueryString } from "../../../utils/formatterQueryString";
+import { useParseLocationSearch } from "../../hooks/useParseLocationSearch";
 
 import "./styles.scss";
 
 const NavBar = () => {
   const history = useHistory();
-  const location = useLocation();
-
-  const { search: searchQuery } = useMemo(
-    () => parseQueryString(location.search),
-    [location]
-  );
-
+  const { search: searchQuery } = useParseLocationSearch();
   const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
