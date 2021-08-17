@@ -1,0 +1,19 @@
+.page_error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% - 80px);
+  background-color: white;
+  padding: 40px;
+  margin-top: 24px;
+
+  .page_error__container {
+    width: 100%;
+    list-style-type: none;
+  }
+
+  .page_error__message {
+    font-size: 28px;
+  }
+}

@@ -11,14 +11,11 @@ import "./styles.scss";
 const NavBar = () => {
   const history = useHistory();
   const { search: searchQuery } = useParseLocationSearch();
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState(searchQuery ?? "");
 
   useEffect(() => {
-    if (searchQuery && searchQuery !== searchValue) {
-      setSearchValue(searchQuery);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    if (!searchQuery) setSearchValue("");
+  }, [searchQuery]);
 
   const handleInptuChange = useCallback((event) => {
     const { value } = event.target;
