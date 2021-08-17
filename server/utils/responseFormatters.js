@@ -20,7 +20,7 @@ export const itemFormatter = (item) => ({
     amount: getPriceFraction(item.price),
     decimals: getPriceCents(item.price),
   },
-  picture: item?.thumbnail ?? item.pictures?.[0].url,
+  picture: item.pictures?.[0].url ?? item?.thumbnail,
   condition: item.condition,
   free_shipping: item.shipping.free_shipping,
 });
