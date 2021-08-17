@@ -1,0 +1,19 @@
+{
+  "name": "challenge-meli",
+  "version": "1.0.0",
+  "description": "Frontend Challenge meli",
+  "scripts": {
+    "start-server": "cd server && yarn start",
+    "start-client": "cd client && yarn start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josealejandroberrios/challenge-meli.git"
+  },
+  "author": "Jose Alejandro Berrios Galviz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josealejandroberrios/challenge-meli/issues"
+  },
+  "homepage": "https://github.com/josealejandroberrios/challenge-meli#readme"
+}

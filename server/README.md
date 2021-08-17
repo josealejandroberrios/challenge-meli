@@ -1,12 +1,11 @@
-# Mercadolibre Client
+# Mercadolibre Server
 
 ## Getting Started
 ### Built With
 
-* React
-* Hooks
-* HTML
-* Scss
+* Node
+* Express
+* Axios
 
 ### Install packages
 ```
@@ -15,4 +14,3 @@ yarn install
 ### Start the project
 ```
 yarn start
-```
